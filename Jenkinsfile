@@ -27,14 +27,27 @@ pipeline {
 	
 		stage ('gitrepo-copy') {
 		steps {
-		dir ('/mnt/SC') {
-			sh "git clone "
+		dir ('/mnt') {
+			sh "sudo git clone "
 			sh "sudo chmod -R 777 /mnt"
+			sh "sudo cp /mnt/docker3/docker-compose.yaml /mnt"
+			sh "sudo mkdir wars"
+			sh "sudo cp /mnt/docker3/gameoflife.war /mnt/wars
 			
 	}
 	}
 	}
 	
+		stage ('Deploy-tomcat-on-docker') {
+		steps {
+		dir ('/mnt') {
+			sh "sudo docker-compose up -d"
+				
+	}
+	}
+	}
+		
+			
 	
 	}
 
