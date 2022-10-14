@@ -9,7 +9,6 @@ pipeline {
 		stage ('install-git-docker') {
 		steps {
 	
-			sh "sudo yum insatll git -y"
 			sh "sudo yum install docker -y"
 			sh "sudo systemctl start docker"
 			sh "sudo chmod -R 777 /mnt"
