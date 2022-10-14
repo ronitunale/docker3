@@ -18,12 +18,12 @@ pipeline {
 		
 		stage ('gitrepo-copy') {
 		steps {
-		dir ('/mnt') {
-			sh "git clone https://github.com/ronitunale/docker3.git"
+		dir ('/mnt/repo') {
+			sh "sudo git clone https://github.com/ronitunale/docker3.git"
 			sh "sudo chmod -R 777 /mnt"
-			sh "sudo cp /mnt/docker3/docker-compose.yaml /mnt"
+			sh "sudo cp /mnt/repo/docker3/docker-compose.yaml /mnt"
 			sh "sudo mkdir wars"
-			sh "sudo cp /mnt/docker3/gameoflife.war /mnt/wars"
+			sh "sudo cp /mnt/repo/docker3/gameoflife.war /mnt/wars"
 			
 	}
 	}
