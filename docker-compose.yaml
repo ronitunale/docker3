@@ -3,7 +3,7 @@ services:
   service-tomcat:
     image: 'tomcat:9'
     ports: 
-      - '8181-8190:8080'
+      - '8181:8080'
     volumes:
       - '/mnt/wars:/usr/local/tomcat/webapps'
 
