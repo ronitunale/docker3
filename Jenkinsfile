@@ -17,6 +17,8 @@ pipeline {
 	}
 		stage ('install-docker-compose') {
 		steps {
+			sh "rm -rf /usr/local/bin/"
+			sh "rm -rf /usr/bin "
 			sh "sudo curl -SL https://github.com/docker/compose/releases/download/v2.11.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose"
 			sh "sudo chmod +x /usr/local/bin/docker-compose"
 			sh "sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose"
