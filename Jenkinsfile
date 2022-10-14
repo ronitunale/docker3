@@ -1,14 +1,14 @@
 pipeline {
 		agent {
 		node {
-			label ('built-in')
+			label ('172.31.38.200')
 		}
 		}
 
 		stages {
-		stage ('install-java-git-docker') {
+		stage ('install-git-docker') {
 		steps {
-			sh "sudo yum install java-1.8.0-openjdk-devel.x86_64 -y"
+	
 			sh "sudo yum insatll git -y"
 			sh "sudo yum install docker -y"
 			sh "sudo systemctl start docker"
@@ -28,7 +28,7 @@ pipeline {
 		stage ('gitrepo-copy') {
 		steps {
 		dir ('/mnt') {
-			sh "sudo git clone "
+			sh "sudo git clone  "
 			sh "sudo chmod -R 777 /mnt"
 			sh "sudo cp /mnt/docker3/docker-compose.yaml /mnt"
 			sh "sudo mkdir wars"
