@@ -49,7 +49,7 @@ pipeline {
 			
 		}
 		}	
-			}
+		}
 	
 		stage ('Deploy-tomcat-on-docker') {
 		steps {
@@ -61,7 +61,6 @@ pipeline {
 	}
 		
 			
-	
-	}
 
+	}
 }
