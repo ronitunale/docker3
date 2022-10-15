@@ -16,7 +16,7 @@ pipeline {
 	}
 	}
 			
-		stage ('install-docker-compose') {
+	//	stage ('install-docker-compose') {
 		steps {
 	
 			sh "curl -SL https://github.com/docker/compose/releases/download/v2.11.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose"
@@ -26,7 +26,7 @@ pipeline {
 		
 	}
 	}	
-			
+	//		
 			
 		stage ('gitrepo-copy') {
 		steps {
@@ -35,13 +35,21 @@ pipeline {
 			sh "git clone https://github.com/ronitunale/docker3.git"
 			sh "chmod -R 777 /mnt"
 			sh "cp /mnt/repo/docker3/docker-compose.yaml /mnt"
-			sh "mkdir wars"
-			sh "cp /mnt/repo/docker3/gameoflife.war /mnt/wars"
+			
 			
 	}
 	}
 	}
-	
+			stage ('war-copy') {
+		steps {
+		dir ('/mnt') {
+			sh "mkdir wars"
+			sh "chmod -R 777 /mnt"
+			sh "cp /mnt/repo/docker3/gameoflife.war /mnt/wars"
+			
+		}
+		}	
+			}
 	
 		stage ('Deploy-tomcat-on-docker') {
 		steps {
